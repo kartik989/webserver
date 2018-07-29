@@ -5,14 +5,19 @@ var app=express();
 app.set('view engine','hbs');
 app.use(express.static( './public'));
 app.get('/',(req,res)=>{
-  res.send('<h1>hello express</h1>')
-
+  res.render('home.hbs')
 });
+
 app.get('/about',(req,res)=>{
   res.render('about.hbs',{
     pageTitle:'kartik',
     currentyear:new Date().getFullYear()
   });
+});
+app.get('/portfolio',(req,res)=>{
+  res.render('portfolio.hbs',{
+    pageTitle:'portfolio'
+  })
 })
 
 app.listen(port,()=>{
